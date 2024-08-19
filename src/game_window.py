@@ -50,7 +50,7 @@ class GameWindow:
 beyond 10,000 points then each remaining player has one more opportunity
 to beat the leading player's final score."""
         
-        rules_textbox = Text(top, height=500, width=500, bg=self._primary_color)
+        rules_textbox = Text(top, height=500, width=500, bg=self._primary_color, wrap="word")
         rules_textbox.pack()
         rules_textbox.insert(END, rules)
         rules_textbox.configure(state="disabled")
