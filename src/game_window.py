@@ -1,4 +1,4 @@
-from tkinter import BOTH, Tk, Canvas, Button, Label, Frame
+from tkinter import BOTH, Tk, Canvas, Button, Label, Frame, Toplevel
 
 class GameWindow:
     def __init__(self, width=800, height=800):
@@ -21,7 +21,7 @@ class GameWindow:
         # How to play and new game buttons
         self.footer_frame = Frame(self.canvas, bg="#f0e399")
         self.footer_frame.pack(side="bottom")
-        self.help_button = Button(self.footer_frame, text="How to play",font=("Arial", 16), bg="white",)
+        self.help_button = Button(self.footer_frame, text="How to play",font=("Arial", 16), bg="white", command=self.open_help_popup)
         self.new_game_button = Button(self.footer_frame, text="New Game", font=("Arial", 16), bg="white")
         self.root.grid_rowconfigure(0, weight=1)
         self.root.grid_columnconfigure(0, weight=1)
@@ -40,4 +40,10 @@ class GameWindow:
     
     def close(self):
         self.running = False
+
+    def open_help_popup(self):
+        top = Toplevel(self.root)
+        top.geometry("600x600")
+        top.title("How to play.")
+        Label(top, text="This is how to play dice").pack()
 

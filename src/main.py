@@ -1,4 +1,4 @@
-from graphics import GameWindow
+from game_window import GameWindow
 from tkinter import Tk, Canvas, Button, Frame
 
 def main():
