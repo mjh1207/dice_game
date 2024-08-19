@@ -1,4 +1,4 @@
-from tkinter import BOTH, Tk, Canvas, Button, Label, Frame, Toplevel
+from tkinter import BOTH, Tk, Canvas, Button, Label, Frame, Toplevel, Text, END
 
 class GameWindow:
     def __init__(self, width=800, height=800):
@@ -45,5 +45,13 @@ class GameWindow:
         top = Toplevel(self.root)
         top.geometry("600x600")
         top.title("How to play.")
-        Label(top, text="This is how to play dice").pack()
+
+        rules = """The goal of this game is to get to 10,000 points. Once a player goes
+beyond 10,000 points then each remaining player has one more opportunity
+to beat the leading player's final score."""
+        
+        rules_textbox = Text(top, height=500, width=500, bg=self._primary_color)
+        rules_textbox.pack()
+        rules_textbox.insert(END, rules)
+        rules_textbox.configure(state="disabled")
 
